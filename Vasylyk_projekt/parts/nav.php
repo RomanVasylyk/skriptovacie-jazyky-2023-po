@@ -1,5 +1,5 @@
 
-  <header class="container main-header">
+<header class="container main-header">
     <div><img class="img" src="./img/images.jpeg" alt="Logo"></div>
     <nav class="main-nav">
       <ul class="main-menu" id="main-menu">
