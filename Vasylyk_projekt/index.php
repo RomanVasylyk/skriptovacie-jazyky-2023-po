@@ -1,32 +1,15 @@
 <!DOCTYPE html>
 <html lang="sk">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt</title>
-    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<?php
+include_once "parts/header.php";
+?>
 <body>
   
 
   
-  <header class="container main-header">
-    <a><img class="img" src="./img/images.jpeg" alt="Logo"></a>
-    <nav class="main-nav">
-      <ul class="main-menu" id="main-menu">
-        <li><a class="d" href="index.html">Domov</a></li>
-        <li><a class="o" href="o_nas.html">Blog</a></li>
-        <li><a class="g" href="galeria.html">Galeria</a></li>
-        <li><a class="k" href="kontakt.html">Kontakt</a></li>
-      </ul>
-      <a class="hamburger" id="hamburger">
-        <i class="fa fa-bars"></i>
-      </a>
-    </nav>
-  </header>
+<?php
+include_once "parts/nav.php";
+?>
   <main>
     <div class="hero-img">
       <img style="width: 100%;" src="./img/image.jpeg" alt="">
