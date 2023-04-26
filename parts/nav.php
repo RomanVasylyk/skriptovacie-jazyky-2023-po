@@ -7,6 +7,8 @@
         <li><a class="o" href="o_nas.php">Blog</a></li>
         <li><a class="g o" href="galeria.php">Galeria</a></li>
         <li><a class="k o" href="kontakt.php">Kontakt</a></li>
+        <li><a class="k o" href="logg.php">log</a></li>
+        <li><a class="k o" href="regg.php">reg</a></li>
       </ul>
       <a class="hamburger" id="hamburger">
         <i class="fa fa-bars"></i>

@@ -13,7 +13,8 @@ if(empty($login) || empty($pass) || empty($email)){
     }else{
     $sql = "INSERT INTO `users` (login, pass, email) VALUES ('$login', '$pass', '$email')";
     if($conn->query($sql) === TRUE){
-      echo "Super";
+        
+        header("Location: ../thank.php");
     }else{
         echo "error". $conn->error;
     }
