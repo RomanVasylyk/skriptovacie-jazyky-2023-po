@@ -11,7 +11,7 @@ if(empty($login) || empty($pass)){
     $result = $conn->query($sql);
 
     if($result->num_rows >0){
-        echo "Welcome" . $row['login'];
+        echo "Welcome ".$login;
     }else{
         echo "немає такого користувача";
     }
