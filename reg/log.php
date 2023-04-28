@@ -1,21 +1,24 @@
 <?php
 require_once('db.php');
 
-$login = $_POST['login'];
-$pass = $_POST['pass'];
+if (isset($_POST['login']) && isset($_POST['pass'])) {
+    $login = mysqli_real_escape_string($conn, $_POST['login']);
+    $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
-if(empty($login) || empty($pass)){
-    echo "Заповніть всі поля";
-}else{
     $sql = "SELECT * FROM `users` WHERE login = '$login' AND pass = '$pass'";
     $result = $conn->query($sql);
 
-    if($result->num_rows >0){
-        echo "Welcome ".$login;
-    }else{
-        echo "немає такого користувача";
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        setcookie('user', $user['login'], time() + 3600, "/");
+        header('Location: ../index.php');
+    } else {
+        echo "Žiadny použivatel";
     }
+} else {
+    echo "Vyplňte všetky polia";
 }
+
 
 
 ?>

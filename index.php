@@ -177,7 +177,6 @@ include_once "parts/footer.php";
 ?>
 
     <script>
-    //Nefungovalo to, keď to bolo v súbore js, tak som to napísal sem
     var acc = document.getElementsByClassName("accordion");
     var i;
 
