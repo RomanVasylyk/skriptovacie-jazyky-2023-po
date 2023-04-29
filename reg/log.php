@@ -4,7 +4,7 @@ require_once('db.php');
 
 if (isset($_POST['login']) && isset($_POST['pass'])) {
     $login = $_POST['login'];
-    $pass = $_POST['pass'];
+    $pass = md5($_POST['pass']);
 
     $sql = mysqli_query($conn, "SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
     

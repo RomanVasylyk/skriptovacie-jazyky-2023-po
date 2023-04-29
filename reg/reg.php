@@ -38,13 +38,12 @@ if(empty($login) || empty($pass) || empty($email)){
         $_SESSION['pol'] = "Používateľ s týmto emailom už v databáze existuje";
         header('Location: ../regg.php');
     }else{
-        
-        $sql = "INSERT INTO `users` (login, pass, email) VALUES ('$login', '$pass', '$email')";
-    if($conn->query($sql) === TRUE){
-        
+        $pass = md5($pass);
+        $sql = mysqli_query($conn, "INSERT INTO `users` (`id`,`login`, `pass`, `email`) VALUES (NULL,'$login', '$pass', '$email')");
+    if($sql === TRUE){
         header("Location: ../logg.php");
     }else{
-        echo "error". $conn->error;
+        $_SESSION['pol'] = "error";
     }
     }
     }
