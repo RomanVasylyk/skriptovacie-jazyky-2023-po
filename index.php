@@ -33,11 +33,6 @@ include_once "parts/nav.php";
 
 
 
-
-
-
-
-
     <section class="container s fo">
         <div class="row">
             <div class="col-50">
