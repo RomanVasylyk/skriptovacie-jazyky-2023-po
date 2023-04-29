@@ -7,6 +7,8 @@ $pass=$_POST['pass'];
 $repeatpass=$_POST['repeatpass'];
 $email=$_POST['email'];
 
+
+
 if(empty($login) || empty($pass) || empty($email)){
     $_SESSION['pol'] = "vyplňte všetky polia";
     header('Location: ../regg.php');
@@ -36,6 +38,7 @@ if(empty($login) || empty($pass) || empty($email)){
         $_SESSION['pol'] = "Používateľ s týmto emailom už v databáze existuje";
         header('Location: ../regg.php');
     }else{
+        
         $sql = "INSERT INTO `users` (login, pass, email) VALUES ('$login', '$pass', '$email')";
     if($conn->query($sql) === TRUE){
         

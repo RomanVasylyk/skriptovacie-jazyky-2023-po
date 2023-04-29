@@ -41,9 +41,7 @@ include_once "parts/nav.php";
         <button style="margin:5px;" type="submit">register</button>
     </form>
 </main>
-    <?php
-include_once "parts/footer.php";
-?>
+    
 </body>
 
 </html>

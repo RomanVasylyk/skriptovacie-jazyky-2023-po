@@ -447,6 +447,21 @@ table, th, td, tr{
   height: 250px;
 }
 
+.container2 {
+  padding-left:10%;
+  padding-right:10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+}
+.item2{
+  color: red;
+  padding-top: 20px;
+  font-size: 20px;
+  border: 2px solid rgb(202, 144, 144);
+  text-align: center;
+  
+}
 
 
 
