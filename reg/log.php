@@ -16,7 +16,6 @@ if (isset($_POST['login']) && isset($_POST['pass'])) {
             "login" => $user['login'],
             "email" => $user['email']
         ];
-        setcookie('user', $user['login'], time() + 3600, "/");
         header('Location: ../index.php');
     } else {
         $_SESSION['pou'] = "Žiadny použivatel";

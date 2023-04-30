@@ -32,17 +32,36 @@ if($_COOKIE['user'] == ''):
     <?php else: ?>
     <section style="margin-top: 100px;">
 
-        <h1>Vitajte vo svojom osobnom účte <?= $_COOKIE['user'] ?> !</h1>
+        <h1 style="margin: 10px;">Vitajte vo svojom osobnom účte <?= $_SESSION['dany']['login']?> !</h1>
         <div class="container2">
-            <div class="item2">Login:  <?= $_COOKIE['user'];?></div>
+            <div class="item2"><p>Login:  <?= $_SESSION['dany']['login']?></p><br><p></p></div>
             <div class="item2">Email: <?= $_SESSION['dany']['email'];?> </div>
             <div class="item2">Елемент 3</div>
         </div>
         
+        <div class="container2">
+            <div class="item2">
+                <form style="width: 75%;" action="reg/updetelog.php" method="post">
+            <input type="text" placeholder="login" name="login" class="feedback-input m">
+            <input type="text" placeholder="new login" name="newlogin" class="feedback-input">
+            <input type="text" placeholder="password" name="pass" class="feedback-input">
+            <?php
+             if($_SESSION['po']){
+             echo '<p style="margin-top: -15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['po'] . '</p>';
+             }
+             unset($_SESSION['po'])
+             ?>
+            <button type="submit">Updete Login</button>
+                </form>
+            </div>
+            <div class="item2">Email:  </div>
+            <div class="item2">Елемент 3</div>
+        </div>
+
     </section>
     <section style="text-align: center;">
 
-        <p style="margin-top: 150px; color: #e89d9d;">Ahoj <?=$_COOKIE['user']?> <a href="reg/exit.php"><button
+        <p style="margin-top: 150px; color: #e89d9d;">Ahoj <?= $_SESSION['dany']['login']?> <a href="reg/exit.php"><button
                     style="font-family: fantasy;border-radius: 50%;background-color:rgb(202, 144, 144); ">logout</button></a>
         </p>
     </section>

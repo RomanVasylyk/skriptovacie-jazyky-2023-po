@@ -18,7 +18,7 @@ include_once "parts/header.php";
         ?>  
         <li><a class="k o" href="logg.php">log</a></li>
         <?php else: ?>
-          <li><a class="k o" href="logg.php"><?=$_COOKIE['user']?></a></li>
+          <li><a class="k o" href="logg.php"><?= $_SESSION['dany']['login']?></a></li>
         <?php endif;?>
       </ul>
       <a class="hamburger" id="hamburger">
