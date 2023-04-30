@@ -36,7 +36,7 @@ if($_COOKIE['user'] == ''):
         <div class="container2">
             <div class="item2"><p>Login:  <?= $_SESSION['dany']['login']?></p><br><p></p></div>
             <div class="item2">Email: <?= $_SESSION['dany']['email'];?> </div>
-            <div class="item2">Елемент 3</div>
+            <div class="item2">Password</div>
         </div>
         
         <div class="container2">
@@ -54,8 +54,34 @@ if($_COOKIE['user'] == ''):
             <button type="submit">Updete Login</button>
                 </form>
             </div>
-            <div class="item2">Email:  </div>
-            <div class="item2">Елемент 3</div>
+            <div class="item2">
+                <form style="width: 75%;" action="reg/updetelog.php" method="post">
+            <input type="text" placeholder="Email" name="email" class="feedback-input m">
+            <input type="text" placeholder="new Email" name="newemail" class="feedback-input">
+            <input type="text" placeholder="password" name="pass" class="feedback-input">
+            <?php
+             if($_SESSION['po1']){
+             echo '<p style="margin-top: -15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['po1'] . '</p>';
+             }
+             unset($_SESSION['po1'])
+             ?>
+            <button type="submit">Updete Email</button>
+                </form> 
+            </div>
+            <div class="item2">
+                <form style="width: 75%;" action="reg/updetelog.php" method="post">
+                <br>
+            <input type="text" placeholder="password" name="pass" class="feedback-input">
+            <input type="text" placeholder="new password" name="newpass" class="feedback-input">
+            <?php
+             if($_SESSION['po2']){
+             echo '<p style="margin-top: -15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['po2'] . '</p>';
+             }
+             unset($_SESSION['po2'])
+             ?>
+            <button type="submit">Updete Password</button>
+                </form>
+             </div>
         </div>
 
     </section>
