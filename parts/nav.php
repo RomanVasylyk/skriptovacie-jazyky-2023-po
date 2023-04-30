@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="sk">
 <?php
+session_start();
 include_once "parts/header.php";
 ?>
 
