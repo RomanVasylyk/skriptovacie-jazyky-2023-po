@@ -15,7 +15,7 @@ include_once "parts/header.php";
         <li><a class="g o" href="galeria.php">Galeria</a></li>
         <li><a class="k o" href="kontakt.php">Kontakt</a></li>
         <?php
-        if($_COOKIE['user'] == ''):
+        if($_SESSION['dany']['login'] == ''):
         ?>  
         <li><a class="k o" href="logg.php">log</a></li>
         <?php else: ?>

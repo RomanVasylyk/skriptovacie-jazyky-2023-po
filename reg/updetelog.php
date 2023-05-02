@@ -54,10 +54,13 @@ else if($newemail != ''){
     }
 }
 else{
-    if($pass == $newpass){
+    if($newpass != ''){
+        header('Location: ../logg.php');
+    }else if($pass == $newpass){
         $_SESSION['po2'] = "nové heslo je rovnaké ako staré";
         header('Location: ../logg.php');
-    }else{
+    }
+    else{
     $sql1 = mysqli_query($conn, "SELECT * FROM `users` WHERE `pass` = '$pass'");
     if(mysqli_num_rows($sql1) > 0){
         $sql = "UPDATE `users` SET `pass` = '$newpass' WHERE `pass` = '$pass'";

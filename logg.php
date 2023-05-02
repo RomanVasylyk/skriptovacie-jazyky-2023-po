@@ -12,7 +12,7 @@ include_once "parts/header.php";
 include_once "parts/nav.php";
 ?>
     <?php
-if($_COOKIE['user'] == ''):
+if($_SESSION['dany']['login'] == ''):
 ?>
     <main style="margin-top: 150px;">
     <h1>Autorizácia</h1>
@@ -51,7 +51,7 @@ if($_COOKIE['user'] == ''):
              }
              unset($_SESSION['po'])
              ?>
-            <button type="submit">Updete Login</button>
+            <button type="submit">Update Login</button>
                 </form>
             </div>
             <div class="item2">
@@ -65,7 +65,7 @@ if($_COOKIE['user'] == ''):
              }
              unset($_SESSION['po1'])
              ?>
-            <button type="submit">Updete Email</button>
+            <button type="submit">Update Email</button>
                 </form> 
             </div>
             <div class="item2">
@@ -79,7 +79,7 @@ if($_COOKIE['user'] == ''):
              }
              unset($_SESSION['po2'])
              ?>
-            <button type="submit">Updete Password</button>
+            <button type="submit">Update Password</button>
                 </form>
              </div>
         </div>

@@ -1,5 +1,5 @@
 <?php
-
-setcookie('user', $user['login'], time() + 3600, "/");
+session_start();
+$_SESSION['dany']['login'] = '';
 header("Location: ../logg.php");
 ?>
