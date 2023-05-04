@@ -41,7 +41,7 @@ if($_SESSION['dany']['login'] == ''):
         
         <div class="container2">
             <div class="item2">
-                <form style="width: 75%;" action="reg/updetelog.php" method="post">
+                <form style="width: 75%;" action="reg/updatelog.php" method="post">
             <input type="text" placeholder="login" name="login" class="feedback-input m">
             <input type="text" placeholder="new login" name="newlogin" class="feedback-input">
             <input type="text" placeholder="password" name="pass" class="feedback-input">
@@ -55,10 +55,10 @@ if($_SESSION['dany']['login'] == ''):
                 </form>
             </div>
             <div class="item2">
-                <form style="width: 75%;" action="reg/updetelog.php" method="post">
+                <form style="width: 75%;" action="reg/updateemail.php" method="post">
             <input type="text" placeholder="Email" name="email" class="feedback-input m">
             <input type="text" placeholder="new Email" name="newemail" class="feedback-input">
-            <input type="text" placeholder="password" name="pass" class="feedback-input">
+            <input type="text" placeholder="password" name="pass" class="feedback-input m">
             <?php
              if($_SESSION['po1']){
              echo '<p style="margin-top: -15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['po1'] . '</p>';
@@ -69,7 +69,7 @@ if($_SESSION['dany']['login'] == ''):
                 </form> 
             </div>
             <div class="item2">
-                <form style="width: 75%;" action="reg/updetelog.php" method="post">
+                <form style="width: 75%;" action="reg/updatepass.php" method="post">
                 <br>
             <input type="text" placeholder="password" name="pass" class="feedback-input">
             <input type="text" placeholder="new password" name="newpass" class="feedback-input">

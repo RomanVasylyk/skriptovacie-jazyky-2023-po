@@ -8,7 +8,7 @@ if (isset($_POST['login']) && isset($_POST['pass'])) {
 
     $sql = mysqli_query($conn, "SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
     
-
+if($login != "" && $pass != ""){
     if (mysqli_num_rows($sql) > 0) {
         $user = mysqli_fetch_assoc($sql);
         $_SESSION['dany'] = [
@@ -21,9 +21,10 @@ if (isset($_POST['login']) && isset($_POST['pass'])) {
         $_SESSION['pou'] = "Žiadny použivatel";
         header('Location: ../logg.php');
     }
-} else {
+    }else {
     $_SESSION['pou'] = "Vyplňte všetky polia";
     header('Location: ../logg.php');
+}
 }
 
 
