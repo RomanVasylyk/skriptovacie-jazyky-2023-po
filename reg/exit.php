@@ -1,5 +1,5 @@
 <?php
 session_start();
-$_SESSION['dany']['login'] = '';
+unset($_SESSION['dany']);
 header("Location: ../logg.php");
 ?>

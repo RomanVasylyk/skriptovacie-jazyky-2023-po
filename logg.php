@@ -84,10 +84,31 @@ if($_SESSION['dany']['login'] == ''):
              </div>
         </div>
 
+        <div class="container2">
+            <div class="item2"><p>Delete Account   </p><br><p></p></div>
+        </div>
+
+        <div class="container2">
+        <div class="item2">
+                <form style="width: 75%;" action="reg/delete.php" method="post">
+                <br>
+            <input type="text" placeholder="login" name="login" class="feedback-input">
+            <input type="text" placeholder="password" name="pass" class="feedback-input">
+            <?php
+             if($_SESSION['po3']){
+             echo '<p style="margin-top: -15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['po3'] . '</p>';
+             }
+             unset($_SESSION['po3'])
+             ?>
+            <button type="submit">Delete</button>
+                </form>
+             </div>
+        </div>
+
     </section>
     <section style="text-align: center;">
 
-        <p style="margin-top: 150px; color: #e89d9d;">Ahoj <?= $_SESSION['dany']['login']?> <a href="reg/exit.php"><button
+        <p style="margin-top: 100px; color: #e89d9d;">Ahoj <?= $_SESSION['dany']['login']?> <a href="reg/exit.php"><button
                     style="font-family: fantasy;border-radius: 50%;background-color:rgb(202, 144, 144); ">logout</button></a>
         </p>
     </section>
