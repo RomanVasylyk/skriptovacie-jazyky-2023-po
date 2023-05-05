@@ -14,7 +14,7 @@ include_once "parts/nav.php";
             <input type="text" placeholder="login" name="login" class="feedback-input m">
             <input type="text" placeholder="password" name="pass" class="feedback-input">
             <input type="text" placeholder="name riadu" name="name" class="feedback-input">
-            <input type="file" placeholder="img" name="img" class="feedback-input">
+            <input type="file" name="img" class="feedback-input">
             <textarea  name="history" required class="feedback-input" placeholder="History"></textarea>
             <?php
              if($_SESSION['blog']){
