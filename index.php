@@ -91,9 +91,12 @@ include_once "parts/nav.php";
                 <img style="width: 100%;" src="./img/3.avif" alt="">
             </div>
         </div>
+        
     </section>
 
+    
     <section>
+    <button type="submit" style="width: 3%;height: 50px;background:#CC6666;text-decoration: none;"><a style="text-decoration: none;" href="blogadd.php">+</a></button>
         <button class="accordion">Pilaf s baklažánom</button>
         <div class="panel">
             <div class="container row">
