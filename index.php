@@ -175,9 +175,19 @@ include_once "parts/nav.php";
         <?php
  $result = mysqli_query($conn, "SELECT * FROM `blog`");
 
- while ($row = mysqli_fetch_assoc($result)) {
 
-    echo '<button class="accordion">' . $row["name"] . '</button>
+ while ($row = mysqli_fetch_assoc($result)) {
+    $qw = $row["id"];
+    $idd = mysqli_query($conn, "SELECT *
+    FROM `users`
+    INNER JOIN `blog`
+    ON `users`.`id` = `blog`.`id`
+    WHERE `users`.`id` = '$qw'");
+
+    
+    $ro = mysqli_fetch_assoc($idd);
+
+    echo '<button class="accordion">' . $row["name"] . '      , vytvoril: ' . $ro["login"] . '</button>
     <div class="panel">
         <div class="container row">
             <div class="col-50"><img style="width: 100%;" src="./img/' . $row["img"] . '" alt=""></div>
