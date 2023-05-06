@@ -9,7 +9,7 @@ include_once "parts/header.php";
 include_once "parts/nav.php";
 ?>
 <section style="margin-top: 100px;">
-<h1>Pridaj svoj recept</h1>
+<h1>Pridaj svoj blog</h1>
 <form action="reg/bladd.php" method="post" enctype="multipart/form-data">
             <input type="text" placeholder="login" name="login" class="feedback-input m">
             <input type="text" placeholder="password" name="pass" class="feedback-input">

@@ -98,7 +98,8 @@ include_once "parts/nav.php";
     
     <section>
     <button type="submit" style="width: 3%;height: 50px;background:#CC6666;text-decoration: none;"><a style="text-decoration: none;" href="blogadd.php">+</a></button>
-        
+    <button type="submit" style="width: 3%;height: 50px;background:#CC6666;text-decoration: none;"><a style="text-decoration: none;" href="removeblog.php">-</a></button>
+
     
 
 
@@ -187,7 +188,7 @@ include_once "parts/nav.php";
     
     $ro = mysqli_fetch_assoc($idd);
 
-    echo '<button class="accordion">' . $row["name"] . '      , vytvoril: ' . $ro["login"] . '</button>
+    echo '<button class="accordion">' . $row["name"] . '      , vytvoril:   ' . $ro["login"] . '</button>
     <div class="panel">
         <div class="container row">
             <div class="col-50"><img style="width: 100%;" src="./img/' . $row["img"] . '" alt=""></div>
