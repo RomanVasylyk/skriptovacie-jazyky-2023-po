@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="sk">
 <?php
+require_once("reg/db.php");
 include_once "parts/header.php";
 ?>
 
@@ -97,7 +98,11 @@ include_once "parts/nav.php";
     
     <section>
     <button type="submit" style="width: 3%;height: 50px;background:#CC6666;text-decoration: none;"><a style="text-decoration: none;" href="blogadd.php">+</a></button>
-        <button class="accordion">Pilaf s baklažánom</button>
+        
+    
+
+
+    <button class="accordion">Pilaf s baklažánom</button>
         <div class="panel">
             <div class="container row">
                 <div class="col-50"><img style="width: 100%;" src="./img/4.png" alt=""></div>
@@ -165,12 +170,35 @@ include_once "parts/nav.php";
                 </div>
             </div>
         </div>
+
+
+        <?php
+ $result = mysqli_query($conn, "SELECT * FROM `blog`");
+
+ while ($row = mysqli_fetch_assoc($result)) {
+
+    echo '<button class="accordion">' . $row["name"] . '</button>
+    <div class="panel">
+        <div class="container row">
+            <div class="col-50"><img style="width: 100%;" src="./img/' . $row["img"] . '" alt=""></div>
+            <div class="col-50">
+                <p style="font-family: fantasy;">' . $row["history"] . '</p>
+            </div>
+        </div>
+    </div>';
+
+
+ }
+ ?>
+
     </section>
 
 
 
 
     <?php
+ 
+
 include_once "parts/footer.php";
 ?>
 
