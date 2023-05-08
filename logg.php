@@ -98,7 +98,7 @@ if($_SESSION['dany']['login'] == ''):
              if($_SESSION['po3']){
              echo '<p style="margin-top: -15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['po3'] . '</p>';
              }
-             unset($_SESSION['po3'])
+             unset($_SESSION['po3']);
              ?>
             <button type="submit">Delete</button>
                 </form>
