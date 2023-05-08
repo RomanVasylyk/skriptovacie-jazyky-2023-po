@@ -11,10 +11,20 @@ $img_name = $_FILES['image']['name'];
 
 
 
+
+if(strlen($name) > 50){
+    $_SESSION['blog'] = "(Nazov)Príliš veľa slov v príbehu môže mať iba 50 písmen";
+    header('Location: ../blogadd.php');
+}
+if(strlen($history) > 1000){
+    $_SESSION['blog'] = "(Historia)Príliš veľa slov v príbehu môže mať iba 1000 písmen";
+    header('Location: ../blogadd.php');
+}
 if(empty($login) || empty($pass) || empty($name) || empty($history) || empty($tmp_name)){
     $_SESSION['blog'] = "Vyplňte všetky polia";
     header('Location: ../blogadd.php');
-} else {
+}
+ else {
     $sql = mysqli_query($conn, "SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass'");
     if(mysqli_num_rows($sql) > 0){
         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
