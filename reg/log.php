@@ -14,7 +14,8 @@ if($login != "" && $pass != "d41d8cd98f00b204e9800998ecf8427e"){
         $_SESSION['dany'] = [
             "id" => $user['id'],
             "login" => $user['login'],
-            "email" => $user['email']
+            "email" => $user['email'],
+            "admin" => $user['admin']
         ];
         header('Location: ../index.php');
     } else {

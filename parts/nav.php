@@ -21,6 +21,11 @@ include_once "parts/header.php";
         <?php else: ?>
           <li><a class="k o" href="logg.php"><?= $_SESSION['dany']['login']?></a></li>
         <?php endif;?>
+        <?php
+        if($_SESSION['dany']['admin'] == 1):
+        ?> 
+        <li><a class="k o" href="admin.php">Admin</a></li>
+        <?php endif;?>
       </ul>
       <a class="hamburger" id="hamburger">
         <i class="fa fa-bars"></i>
