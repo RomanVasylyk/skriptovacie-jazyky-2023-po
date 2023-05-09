@@ -58,6 +58,9 @@ require_once('reg/db.php');
 </style>
 <body>
 <?php
+if($_SESSION['dany']['admin'] == 1):
+?>
+<?php
 include_once "parts/nav.php";
 ?>
 
@@ -139,6 +142,6 @@ include_once "parts/nav.php";
   unset($_SESSION['del'])
 ?>
 </section>
-
+<?php endif;?>
 </body>
 </html>
