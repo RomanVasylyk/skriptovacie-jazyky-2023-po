@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="sk">
 <?php
+session_start();
 require_once("reg/db.php");
 include_once "parts/header.php";
 ?>
@@ -192,12 +193,24 @@ include_once "parts/nav.php";
     <div class="panel">
         <div class="container row">
             <div class="col-50"><img style="width: 100%;" src="./img/' . $row["img"] . '" alt=""></div>
-            <div class="col-50">
+            <div class="col-50" style="text-align: center;">
                 <p style="font-family: fantasy;">' . $row["history"] . '</p>
             </div>
         </div>
-    </div>';
+        <div class="container row">
+        <form  action="reg/komm.php" method="post" enctype="multipart/form-data">
+           <input type="text" placeholder="meno" name="name" class="feedback-input m">
+           <textarea  name="comm" required class="feedback-input" placeholder="Comments"></textarea>';
 
+if($_SESSION['comm']){
+   echo '<p style="margin-top: -15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['comm'] . '</p>';
+}
+unset($_SESSION['comm']);
+
+echo '<button name="idb" type="submit" value="' . $row["name"] . '">Add Comments</button>
+           </form>
+        </div>
+    </div>';
 
  }
  ?>
