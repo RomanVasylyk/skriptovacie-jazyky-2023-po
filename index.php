@@ -197,7 +197,19 @@ include_once "parts/nav.php";
                 <p style="font-family: fantasy;">' . $row["history"] . '</p>
             </div>
         </div>
-        <div class="container row">
+        <div class="container row" style="border: 1px solid red;border-width: 2px;
+        border-style: dashed;
+        border-color: #ccc;">';
+        
+$result1 = mysqli_query($conn, "SELECT * FROM comments WHERE idb = '".$row["idb"]."'");
+while ($row1 = mysqli_fetch_assoc($result1)) {
+$re = mysqli_query($conn, "SELECT * FROM users WHERE id = '".$row["id"]."'");
+$roww = mysqli_fetch_assoc($re);
+echo '' . $roww["login"] . ': <br> Tema:
+'. $row1["name"] .' <br>   '. $row1["comm"] .'';
+}
+     echo '</div>
+          <div class="container row">
         <form  action="reg/komm.php" method="post" enctype="multipart/form-data">
            <input type="text" placeholder="meno" name="name" class="feedback-input m">
            <textarea  name="comm" required class="feedback-input" placeholder="Comments"></textarea>';
