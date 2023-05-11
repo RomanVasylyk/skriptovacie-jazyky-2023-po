@@ -40,6 +40,13 @@ require_once('reg/db.php');
   grid-template-columns: 110px 110px 580px 270px 100px 126px ;
   word-wrap: break-word;
 }
+.container1111 {
+  padding-left:5%;
+  padding-right:5%;
+  display: grid;
+  grid-template-columns: 110px 110px 270px 580px 100px 126px ;
+  word-wrap: break-word;
+}
 .container13 {
   padding-left:5%;
   padding-right:5%;
@@ -204,15 +211,52 @@ $iddd = $_SESSION['dany']['id'];
             <div class="item4">'. $row["history"] .'</div>
             <div class="item4">'. $row["img"] .'</div>
             <div class="item4">'. $row["date"] .'</div>
-            <div class="item4"><form action="reg/delad.php" method="post"><button  name="del" value="' . $row["idb"] . '" type="submit">Delete</button></form></div>
+            <div class="item4"><form action="reg/delad.php" method="post"><button  name="del3" value="' . $row["idb"] . '" type="submit">Delete</button></form></div>
          </div>';
  }
 
- if($_SESSION['del']){
-  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del'] . '</p>';
+ if($_SESSION['del3']){
+  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del3'] . '</p>';
   }
   
-  unset($_SESSION['del']);
+  unset($_SESSION['del3']);
+?>
+
+</section>
+
+<section style="margin-top: 100px;" >
+<div class="container13">
+<div class="item3 hhh"><big>Tabuľka Komentárov</big></div>
+</div>
+<div class="container1111">
+            <div class="item3">id komm</div>
+            <div class="item3"><p>id blogu</p><p><br></p></div>
+            <div class="item3">Nazov</div>
+            <div class="item3">Komentár</div>
+            <div class="item3">Datum</div>
+            <div class="item3">Delete</div>
+</div>
+<?php
+$iddd = $_SESSION['dany']['id'];
+ $result5 = mysqli_query($conn, "SELECT * FROM `comments` WHERE `id` = '$iddd'");
+
+ while ($row5 = mysqli_fetch_assoc($result5)) {
+
+    echo '<div class="container1111">
+            <div class="item4">'. $row5["idc"] .'<p><br></p></div>
+            <div class="item4">'. $row5["idb"] .'</div>
+            <div class="item4">'. $row5["name"] .'</div>
+            <div class="item4">'. $row5["comm"] .'</div>
+            <div class="item4">'. $row5["date"] .'</div>
+            <div class="item4"><form action="reg/delad.php" method="post"><button  name="del2" value="' . $row5["idc"] . '" type="submit">Delete</button></form></div>
+         </div>';
+ }
+
+ if($_SESSION['del2']){
+  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del2'] . '</p>';
+  }
+  
+  unset($_SESSION['del2']);
 ?>
 
 </section>
