@@ -19,14 +19,14 @@ require_once('reg/db.php');
   padding-left:5%;
   padding-right:5%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 90px 90px 350px 100px 260px 150px 150px 106px ;
   word-wrap: break-word;
 }
 .container14 {
   padding-left:5%;
   padding-right:5%;
   display: grid;
-  grid-template-columns: 60px 60px 100px 250px 626px 100px 100px;
+  grid-template-columns: 60px 60px 100px 250px 526px 100px 100px 100px;
   
   
 }
@@ -34,14 +34,14 @@ require_once('reg/db.php');
   padding-left:5%;
   padding-right:5%;
   display: grid;
-  grid-template-columns: 110px 110px 580px 270px 100px 126px ;
+  grid-template-columns: 90px 90px 550px 260px 100px 100px 106px ;
   word-wrap: break-word;
 }
 .container1111 {
   padding-left:5%;
   padding-right:5%;
   display: grid;
-  grid-template-columns: 110px 110px 270px 580px 100px 126px ;
+  grid-template-columns: 100px 100px 260px 530px 100px 100px 106px ;
   word-wrap: break-word;
 }
 .container13 {
@@ -96,6 +96,8 @@ include_once "parts/nav.php";
             <div class="item3">Email</div>
             <div class="item3">Status</div>
             <div class="item3">Datum</div>
+            <div class="item3">Add admin</div>
+            <div class="item3">Del admin</div>
             <div class="item3">Delete</div>
 </div>
 <?php
@@ -109,10 +111,16 @@ include_once "parts/nav.php";
             <div class="item4">'. $row["email"] .'</div>
             <div class="item4">'. (($row["admin"] == 1) ? "Admin" : "User") .'</div>
             <div class="item4">'. $row["date"] .'</div>
-            <div class="item4"><form action="reg/delad.php" method="post"><button class="it" name="del1" value="' . $row["id"] . '" type="submit">Delete</button></form></div>
+            <div class="item4"><form action="reg/adm.php" method="post"><button  name="adm1" value="' . $row["id"] . '" type="submit">Admin del</button></form></div>
+            <div class="item4"><form action="reg/adm.php" method="post"><button  name="adm" value="' . $row["id"] . '" type="submit">Admin add</button></form></div>
+            <div class="item4"><form action="reg/delad.php" method="post"><button  name="del1" value="' . $row["id"] . '" type="submit">Delete</button></form></div>
          </div>';
  }
-
+ if($_SESSION['adm']){
+  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['adm'] . '</p>';
+  }
+  
+  unset($_SESSION['adm']);
  if($_SESSION['del1']){
   echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del1'] . '</p>';
   }
@@ -133,6 +141,7 @@ include_once "parts/nav.php";
             <div class="item3">Email autora</div>
             <div class="item3">Historia</div>
             <div class="item3">Datum</div>
+            <div class="item3">Update</div>
             <div class="item3">Delete</div>
 </div>
 <?php
@@ -152,10 +161,16 @@ include_once "parts/nav.php";
             <div class="item4">'. $ro["email"] .'</div>
             <div class="item4">'. $row["history"] .'</div>
             <div class="item4">'. $row["date"] .'</div>
+            <div class="item4"><form action="upblog.php" method="post"><button  name="up" value="' . $row["idb"] . '" type="submit">Update</button></form></div>
             <div class="item4"><form action="reg/delad.php" method="post"><button name="del" value="' . $row["idb"] . '" type="submit">Delete</button></form></div>
 
          </div>';
  }
+ if($_SESSION['up']){
+  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['up'] . '</p>';
+  }
+  
+  unset($_SESSION['up']);
  if($_SESSION['del']){
   echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del'] . '</p>';
   }
@@ -174,6 +189,7 @@ include_once "parts/nav.php";
             <div class="item3">Nazov</div>
             <div class="item3">Komentár</div>
             <div class="item3">Datum</div>
+            <div class="item3">Update</div>
             <div class="item3">Delete</div>
 </div>
 <?php
@@ -188,10 +204,14 @@ $iddd = $_SESSION['dany']['id'];
             <div class="item4">'. $row5["name"] .'</div>
             <div class="item4">'. $row5["comm"] .'</div>
             <div class="item4">'. $row5["date"] .'</div>
+            <div class="item4"><form action="upcomm.php" method="post"><button  name="up1" value="' . $row5["idc"] . '" type="submit">Update</button></form></div>
             <div class="item4"><form action="reg/delad.php" method="post"><button  name="del2" value="' . $row5["idc"] . '" type="submit">Delete</button></form></div>
          </div>';
  }
-
+ if($_SESSION['upp']){
+  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['upp'] . '</p>';
+  }
+  unset($_SESSION['upp']);
  if($_SESSION['del2']){
   echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del2'] . '</p>';
   }

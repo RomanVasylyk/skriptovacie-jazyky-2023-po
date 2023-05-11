@@ -44,7 +44,7 @@ require_once('reg/db.php');
   padding-left:5%;
   padding-right:5%;
   display: grid;
-  grid-template-columns: 110px 110px 270px 580px 100px 126px ;
+  grid-template-columns: 100px 100px 260px 530px 100px 100px 106px ;
   word-wrap: break-word;
 }
 .container13 {
@@ -240,6 +240,7 @@ $iddd = $_SESSION['dany']['id'];
             <div class="item3">Nazov</div>
             <div class="item3">Komentár</div>
             <div class="item3">Datum</div>
+            <div class="item3">Update</div>
             <div class="item3">Delete</div>
 </div>
 <?php
@@ -254,10 +255,14 @@ $iddd = $_SESSION['dany']['id'];
             <div class="item4">'. $row5["name"] .'</div>
             <div class="item4">'. $row5["comm"] .'</div>
             <div class="item4">'. $row5["date"] .'</div>
+            <div class="item4"><form action="upcomm.php" method="post"><button  name="up1" value="' . $row5["idc"] . '" type="submit">Update</button></form></div>
             <div class="item4"><form action="reg/delad.php" method="post"><button  name="del2" value="' . $row5["idc"] . '" type="submit">Delete</button></form></div>
          </div>';
  }
-
+ if($_SESSION['upp']){
+  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['upp'] . '</p>';
+  }
+  unset($_SESSION['upp']);
  if($_SESSION['del2']){
   echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del2'] . '</p>';
   }

@@ -2,7 +2,7 @@
 session_start();
 require_once('db.php');
 
-if(isset($_POST['name']) || isset($_POST['history'])){
+if(isset($_POST['name']) || isset($_POST['comm'])){
     $up = $_POST['idb'];
     $name = $_POST['name'];
     $history = $_POST['comm'];
@@ -26,10 +26,8 @@ if(isset($_POST['name']) || isset($_POST['history'])){
             $_SESSION['up'] = "Niečo sa pokazilo.!";
             header('Location: ../logg.php');
         }
+        
     }
-}else{
-    $_SESSION['up'] = "Vyplňte všetky polia";
-    header('Location: ../logg.php');
 }
 if(isset($_FILES['image']) && $_FILES['image']['size'] > 0){
     $tmp_name = $_FILES['image']['tmp_name'];
