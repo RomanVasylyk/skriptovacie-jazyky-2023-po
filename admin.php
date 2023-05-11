@@ -96,7 +96,7 @@ include_once "parts/nav.php";
   echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del1'] . '</p>';
   }
   
-  unset($_SESSION['del1'])
+  unset($_SESSION['del1']);
 ?>
 
 </section>
