@@ -20,7 +20,7 @@ require_once('reg/db.php');
   padding-right:5%;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  
+  word-wrap: break-word;
 }
 .container14 {
   padding-left:5%;
@@ -30,11 +30,32 @@ require_once('reg/db.php');
   
   
 }
+.container111 {
+  padding-left:5%;
+  padding-right:5%;
+  display: grid;
+  grid-template-columns: 110px 110px 580px 270px 100px 126px ;
+  word-wrap: break-word;
+}
+.container1111 {
+  padding-left:5%;
+  padding-right:5%;
+  display: grid;
+  grid-template-columns: 110px 110px 270px 580px 100px 126px ;
+  word-wrap: break-word;
+}
 .container13 {
   padding-left:5%;
   padding-right:5%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  
+}
+.container11 {
+    padding-left:10%;
+  padding-right:10%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   
 }
 .item4{
@@ -141,6 +162,43 @@ include_once "parts/nav.php";
   
   unset($_SESSION['del'])
 ?>
+</section>
+
+<section style="margin-top: 100px;" >
+<div class="container13">
+<div class="item3 hhh"><big>Tabuľka Komentárov</big></div>
+</div>
+<div class="container1111">
+            <div class="item3">id komm</div>
+            <div class="item3"><p>id blogu</p><p><br></p></div>
+            <div class="item3">Nazov</div>
+            <div class="item3">Komentár</div>
+            <div class="item3">Datum</div>
+            <div class="item3">Delete</div>
+</div>
+<?php
+$iddd = $_SESSION['dany']['id'];
+ $result5 = mysqli_query($conn, "SELECT * FROM `comments` WHERE `id` = '$iddd'");
+
+ while ($row5 = mysqli_fetch_assoc($result5)) {
+
+    echo '<div class="container1111">
+            <div class="item4">'. $row5["idc"] .'<p><br></p></div>
+            <div class="item4">'. $row5["idb"] .'</div>
+            <div class="item4">'. $row5["name"] .'</div>
+            <div class="item4">'. $row5["comm"] .'</div>
+            <div class="item4">'. $row5["date"] .'</div>
+            <div class="item4"><form action="reg/delad.php" method="post"><button  name="del2" value="' . $row5["idc"] . '" type="submit">Delete</button></form></div>
+         </div>';
+ }
+
+ if($_SESSION['del2']){
+  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['del2'] . '</p>';
+  }
+  
+  unset($_SESSION['del2']);
+?>
+
 </section>
 <?php endif;?>
 </body>
