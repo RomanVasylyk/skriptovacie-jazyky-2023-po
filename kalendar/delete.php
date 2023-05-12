@@ -1,8 +1,8 @@
 <?php
 
+session_start();
 
-
-if(isset($_POST["id"]))
+if(isset($_POST["id"]) && $_SESSION['dany']['admin'] == 1)
 {
  $connect = new PDO('mysql:host=localhost;dbname=veb', 'root', '');
  $query = "

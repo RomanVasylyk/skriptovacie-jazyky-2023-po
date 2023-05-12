@@ -1,9 +1,9 @@
 <?php
-
+session_start();
 
 $connect = new PDO('mysql:host=localhost;dbname=veb', 'root', '');
 
-if(isset($_POST["id"]))
+if(isset($_POST["id"]) && $_SESSION['dany']['admin'] == 1)
 {
  $query = "
  UPDATE events 

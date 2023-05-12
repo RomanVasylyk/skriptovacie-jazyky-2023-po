@@ -1,10 +1,10 @@
 <?php
 
-
+session_start();
 
 $connect = new PDO('mysql:host=localhost;dbname=veb', 'root', '');
 
-if(isset($_POST["title"]))
+if(isset($_POST["title"]) && $_SESSION['dany']['admin'] == 1)
 {
  $query = "
  INSERT INTO events 
