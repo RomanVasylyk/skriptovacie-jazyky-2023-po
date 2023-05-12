@@ -5,8 +5,7 @@ session_start();
 include_once "parts/header.php";
 ?>
 
-<body>
-  <header class="container main-header">
+  <header class="containerq main-header">
     <div><img class="img" src="./img/images.jpeg" alt="Logo"></div>
     <nav class="main-nav">
       <ul class="main-menu" id="main-menu">
@@ -14,6 +13,7 @@ include_once "parts/header.php";
         <li><a class="o" href="o_nas.php">Blog</a></li>
         <li><a class="g o" href="galeria.php">Galeria</a></li>
         <li><a class="k o" href="kontakt.php">Kontakt</a></li>
+        <li><a class="k o" href="kalendar/indexx.php">Kalendar</a></li>
         <?php
         if($_SESSION['dany']['login'] == ''):
         ?>  
