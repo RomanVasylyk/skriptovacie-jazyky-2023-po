@@ -18,7 +18,7 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
   <script>
-   
+   /*FullCalendar*/
   $(document).ready(function() {
    var calendar = $('#calendar').fullCalendar({
     editable:true,
@@ -199,7 +199,7 @@ ol, ul, dl {
 include_once "../parts/navk.php";
 ?>
   <br />
-  <h2 align="center"><a href="#">Jquery Fullcalandar Integration with PHP and Mysql</a></h2>
+  <h2 style="margin-top: 50px;" align="center">Kalendar</h2>
   <br />
   <div class="container">
    <div id="calendar"></div>
