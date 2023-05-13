@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="sk">
 <?php
+session_start();
+require_once("reg/db.php");
 include_once "parts/header.php";
 ?>
   <style>
-
+.im{
+  background-color: transparent;
+  width: 5%;
+}
 
     .btn {
       margin-top: 50px;
@@ -20,6 +25,34 @@ include_once "parts/header.php";
 .btn:hover {
   background-color: RoyalBlue;
 }
+
+
+
+
+ 
+ 
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+ 
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
   </style>
 <body>
 
@@ -98,7 +131,24 @@ include_once "parts/nav.php";
 <?php
  $result = mysqli_query($conn, "SELECT * FROM `recept`");
  while ($row = mysqli_fetch_assoc($result)) {
- 
+  $q = $row['id'];
+  $result1 = mysqli_query($conn, "SELECT * FROM `users` WHERE id = '$q'");
+  $ro = mysqli_fetch_assoc($result1);
+  echo '<button class="accordion">' . $row["name"] . ' <span style="float:right">vytvoril: ' . $ro["login"] . '</span></button>
+    <div class="panel">
+        <div class="container row">
+            <div style="text-align: center;" class="col-25"><p >Ingrediencie:</p></div>
+            <div class="col-75"><p >' . $row["ing"] . '</p></div>
+        </div>
+        <div class="container row">
+            <div style="text-align: center;" class="col-25"><p >Kroky:</p></div>
+            <div class="col-75"><p >' . $row["krok"] . '</p></div>
+        </div>
+        <div class="container row">
+            <div style="text-align: center;" class="col-25"><p >Čas:</p></div>
+            <div class="col-75"><p >' . $row["time"] . 'min</p></div>
+        </div>
+    </div>';
 }
 ?>
 </section>
@@ -107,6 +157,22 @@ include_once "parts/footer.php";
 ?>
 
 
-  <script src="js/app .js"></script>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+    </script>
+    <script src="js/app .js"></script>
 </body>
 </html>

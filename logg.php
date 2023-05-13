@@ -47,6 +47,13 @@ require_once('reg/db.php');
   grid-template-columns: 100px 100px 260px 530px 100px 100px 106px ;
   word-wrap: break-word;
 }
+.container22 {
+  padding-left:5%;
+  padding-right:5%;
+  display: grid;
+  grid-template-columns: 80px 80px 240px 300px 240px 50px 100px 100px 106px ;
+  word-wrap: break-word;
+}
 .container13 {
   padding-left:5%;
   padding-right:5%;
@@ -268,6 +275,53 @@ $iddd = $_SESSION['dany']['id'];
   }
   
   unset($_SESSION['del2']);
+?>
+
+</section>
+
+</section>
+
+<section style="margin-top: 100px;" >
+<div class="container13">
+<div class="item3 hhh"><big>Tabuľka Receptov</big></div>
+</div>
+<div class="container22">
+            <div class="item3">id rec</div>
+            <div class="item3"><p>Kategória</p><p><br></p></div>
+            <div class="item3">Nazov</div>
+            <div class="item3">Ingrediencie</div>
+            <div class="item3">Kroky prípravy</div>
+            <div class="item3">Čas varenia</div>
+            <div class="item3">Datum</div>
+            <div class="item3">Update</div>
+            <div class="item3">Delete</div>
+</div>
+<?php
+$iddd = $_SESSION['dany']['id'];
+ $result51 = mysqli_query($conn, "SELECT * FROM `recept` WHERE `id` = '$iddd'");
+
+ while ($row51 = mysqli_fetch_assoc($result51)) {
+  $e = $row51['idk'];
+  $result510 = mysqli_query($conn, "SELECT * FROM `kategori` WHERE `idk` = '$e'");
+  $t = mysqli_fetch_assoc($result510);
+    echo '<div class="container22">
+            <div class="item4">'. $row51["idr"] .'<p><br></p></div>
+            <div class="item4">'. $t["name"] .'</div>
+            <div class="item4">'. $row51["name"] .'</div>
+            <div class="item4">'. $row51["ing"] .'</div>
+            <div class="item4">'. $row51["krok"] .'</div>
+            <div class="item4">'. $row51["time"] .'</div>
+            <div class="item4">'. $row51["date"] .'</div>
+            <div class="item4"><form action="uprec.php" method="post"><button  name="idr" value="' . $row51["idr"] . '" type="submit">Update</button></form></div>
+            <div class="item4"><form action="reg/delad.php" method="post"><button  name="delr" value="' . $row51["idr"] . '" type="submit">Delete</button></form></div>
+         </div>';
+ }
+ 
+ if($_SESSION['delr']){
+  echo '<p style="margin-top: 15px;padding: 5px;text-align: center;font-weight: bold;color: #ef0000;">' . $_SESSION['delr'] . '</p>';
+  }
+  
+  unset($_SESSION['delr']);
 ?>
 
 </section>

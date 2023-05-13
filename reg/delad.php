@@ -58,4 +58,15 @@ if(isset($_POST['del2'])){
             header('Location: ../logg.php');
         }
 }
+if(isset($_POST['delr'])){
+    $delr = $_POST['delr'];
+    $sqlr = mysqli_query($conn, "DELETE FROM `recept` WHERE `idr` = '$delr'");
+    if($sqlr){
+        $_SESSION['delr'] = "Recept bol úspešne odstránený";
+            header('Location: ../logg.php');
+        }else{
+            $_SESSION['delr'] = "Niečo sa pokazilo.!";
+            header('Location: ../logg.php');
+        }
+}
 ?>
