@@ -3,7 +3,26 @@
 <?php
 include_once "parts/header.php";
 ?>
+  <style>
+
+
+    .btn {
+      margin-top: 50px;
+      margin-left: 50px;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: RoyalBlue;
+}
+  </style>
 <body>
+
 <?php
 include_once "parts/nav.php";
 ?>
@@ -74,7 +93,15 @@ include_once "parts/nav.php";
     </table>
    
 </section>
-
+<section>
+<a href="recept.php"><button class="btn"><i class="fa fa-plus"></i>recept</button></a>
+<?php
+ $result = mysqli_query($conn, "SELECT * FROM `recept`");
+ while ($row = mysqli_fetch_assoc($result)) {
+ 
+}
+?>
+</section>
 <?php
 include_once "parts/footer.php";
 ?>
