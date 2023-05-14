@@ -58,6 +58,13 @@ require_once('reg/db.php');
   grid-template-columns: repeat(1, 1fr);
   
 }
+.container133 {
+  padding-left:5%;
+  padding-right:5%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+}
 .container11 {
     padding-left:10%;
   padding-right:10%;
@@ -231,6 +238,13 @@ $iddd = $_SESSION['dany']['id'];
 </section>
 
 <section style="margin-top: 100px;" >
+
+<form style="margin-left: 5%; " action="reg/kate.php" method="post" enctype="multipart/form-data">
+<input  type="text" placeholder="Name kategory" name="name" class="feedback-input m">
+<button  name="but" type="submit" >Pridat</button>
+
+</form>
+
 <div class="container13">
 <div class="item3 hhh"><big>Tabuľka Receptov</big></div>
 </div>
@@ -279,6 +293,7 @@ $iddd = $_SESSION['dany']['id'];
 ?>
 
 </section>
+
 <?php endif;?>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('reg/db.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,13 +51,13 @@ session_start();
       <div class="form-group">
         <label for="category">Kategória:</label>
         <select class="form-control" id="category" name="category">
-          <option value="soup">soup</option>
-          <option value="drink">drink</option>
-          <option value="lunch_dish">lunch dish</option>
-          <option value="Fish">Fish</option>
-          <option value="salad">salad</option>
-          <option value="baking">baking</option>
-          <option value="dessert">dessert</option>
+<?php
+ $result = mysqli_query($conn, "SELECT * FROM `kategori`");
+
+ while ($row = mysqli_fetch_assoc($result)) {
+  echo '<option value="'. $row['name'] .'">'. $row['name'] .'</option>';
+ }
+?>
         </select>
       </div>
 

@@ -16,10 +16,10 @@
       <div class="col-25">
         <h4>Rýchle odkazy</h4>
         <ul>
-          <li><a href="index.html">Domov</a></li>
-          <li><a href="o_nas.html">Blog</a></li>
-          <li><a href="galeria.html">Galeria</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="index.php">Domov</a></li>
+          <li><a href="o_nas.php">Blog</a></li>
+          <li><a href="galeria.php">Galeria</a></li>
+          <li><a href="kontakt.php">Kontakt</a></li>
         </ul>
       </div>
       <div class="col-25">

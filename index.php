@@ -202,7 +202,7 @@ include_once "parts/nav.php";
 $result1 = mysqli_query($conn, "SELECT * FROM comments WHERE idb = '".$row["idb"]."'");
 if($result1->num_rows > 0){
 while ($row1 = mysqli_fetch_assoc($result1)) {
-$re = mysqli_query($conn, "SELECT * FROM users WHERE id = '".$row["id"]."'");
+$re = mysqli_query($conn, "SELECT * FROM users WHERE id = '".$row1["id"]."'");
 $roww = mysqli_fetch_assoc($re);
 
 echo '<h3>' . $roww["login"] . ':</h3> 
@@ -212,7 +212,7 @@ echo '<h3>' . $roww["login"] . ':</h3>
      echo '</div>
           <div class="container row wrapper">
         <form  action="reg/komm.php" method="post" enctype="multipart/form-data">
-           <input type="text" placeholder="meno" name="name" class="feedback-input m">
+           <input type="text" placeholder="Nazov teme" name="name" class="feedback-input m">
            <textarea  name="comm" required class="feedback-input" placeholder="Comments"></textarea>';
 
 if($_SESSION['comm']){
