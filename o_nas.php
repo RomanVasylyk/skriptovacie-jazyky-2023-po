@@ -162,7 +162,8 @@ $idd = $_SESSION['dany']['id'];
    $y = mysqli_fetch_assoc($tyy);
    $s = $y['id'];
    $resu = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `users` WHERE id = '$s'"));
-   echo '<button class="accordion">' . $y["name"] . ' <span style="float:right">vytvoril: ' . $resu["login"] . '</span></button>
+   $tu = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `favorite` WHERE idr = '$b'"));
+   echo '<button class="accordion">' . $y["name"] . '  <span style="margin-left:150px"> '. $tu .' like</span> <span style="float:right">vytvoril: ' . $resu["login"] . '</span></button>
     <div class="panel">
         <div class="container row">';
         echo '<form method="post" action="reg/favom.php"><button name="idr" value="'. $y['idr'] .'" class="btn2"><i class="fa fa-minus"></i> favorite</button></form>';
@@ -190,9 +191,11 @@ $idd = $_SESSION['dany']['id'];
  $result = mysqli_query($conn, "SELECT * FROM `recept`");
  while ($row = mysqli_fetch_assoc($result)) {
   $q = $row['id'];
+  $b = $row['idr'];
   $result1 = mysqli_query($conn, "SELECT * FROM `users` WHERE id = '$q'");
   $ro = mysqli_fetch_assoc($result1);
-  echo '<button class="accordion">' . $row["name"] . ' <span style="float:right">vytvoril: ' . $ro["login"] . '</span></button>
+  $tu = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `favorite` WHERE idr = '$b'"));
+  echo '<button class="accordion">' . $row["name"] . '<span style="margin-left:150px"> '. $tu .' like</span> <span style="float:right">vytvoril: ' . $ro["login"] . '</span></button>
     <div class="panel">
         <div class="container row">';
         $id = $_SESSION['dany']['id'];
