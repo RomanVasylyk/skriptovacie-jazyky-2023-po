@@ -12,8 +12,8 @@ include_once "parts/header.php";
 }
 
     .btn {
-      margin-top: 50px;
-      margin-left: 50px;
+      margin-top: 10px;
+      margin-left: -100px;
   background-color: DodgerBlue;
   border: none;
   color: white;
@@ -25,10 +25,32 @@ include_once "parts/header.php";
 .btn:hover {
   background-color: RoyalBlue;
 }
-
-
-
-
+.btn1:hover {
+  background-color: RoyalBlue;
+}
+.btn1 {
+      margin-top: 50px;
+      margin-left: 50px;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn2 {
+  margin-top: 10px;
+      margin-left: -100px;
+  background-color: chartreuse;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn2:hover {
+  background-color: green;
+}
  
  
   .row::after {
@@ -126,8 +148,44 @@ include_once "parts/nav.php";
     </table>
    
 </section>
+
 <section>
-<a href="recept.php"><button class="btn"><i class="fa fa-plus"></i>recept</button></a>
+<h1 style="margin-top: 20px;">My favorite recipes</h1>
+<?php
+$idd = $_SESSION['dany']['id'];
+ $ty = mysqli_query($conn, "SELECT * FROM `favorite` WHERE id = '$idd'");
+ while ($w = mysqli_fetch_assoc($ty)) {
+
+  $b = $w['idr'];
+  $tyy =  mysqli_query($conn, "SELECT * FROM `recept` WHERE idr = '$b'");
+  if($tyy == TRUE){
+   $y = mysqli_fetch_assoc($tyy);
+   $s = $y['id'];
+   $resu = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `users` WHERE id = '$s'"));
+   echo '<button class="accordion">' . $y["name"] . ' <span style="float:right">vytvoril: ' . $resu["login"] . '</span></button>
+    <div class="panel">
+        <div class="container row">';
+        echo '<form method="post" action="reg/favom.php"><button name="idr" value="'. $y['idr'] .'" class="btn2"><i class="fa fa-minus"></i> favorite</button></form>';
+
+        echo '<div style="text-align: center;" class="col-25"><p >Ingrediencie:</p></div>
+            <div class="col-75"><p >' . $y["ing"] . '</p></div>
+        </div>
+        <div class="container row">
+            <div style="text-align: center;" class="col-25"><p >Kroky:</p></div>
+            <div class="col-75"><p >' . $y["krok"] . '</p></div>
+        </div>
+        <div class="container row">
+            <div style="text-align: center;" class="col-25"><p >Čas:</p></div>
+            <div class="col-75"><p >' . $y["time"] . 'min</p></div>
+        </div>
+    </div>';
+  }
+ }
+ ?>
+</section>
+
+<section>
+<a href="recept.php"><button class="btn1"><i class="fa fa-plus"></i>recept</button></a>
 <?php
  $result = mysqli_query($conn, "SELECT * FROM `recept`");
  while ($row = mysqli_fetch_assoc($result)) {
@@ -136,8 +194,16 @@ include_once "parts/nav.php";
   $ro = mysqli_fetch_assoc($result1);
   echo '<button class="accordion">' . $row["name"] . ' <span style="float:right">vytvoril: ' . $ro["login"] . '</span></button>
     <div class="panel">
-        <div class="container row">
-            <div style="text-align: center;" class="col-25"><p >Ingrediencie:</p></div>
+        <div class="container row">';
+        $id = $_SESSION['dany']['id'];
+        $idr = $row['idr'];
+  $p = mysqli_query($conn, "SELECT * FROM favorite WHERE id = '$id' AND idr = '$idr' ");
+if(mysqli_num_rows($p) == 0){
+  echo '<form method="post" action="reg/favo.php"><button name="idr" value="'. $idr .'" class="btn"><i class="fa fa-plus"></i> favorite</button></form>';
+}else{
+  echo '<form method="post" action="reg/favom.php"><button name="idr" value="'. $idr .'" class="btn2"><i class="fa fa-minus"></i> favorite</button></form>';
+}
+  echo '<div style="text-align: center;" class="col-25"><p >Ingrediencie:</p></div>
             <div class="col-75"><p >' . $row["ing"] . '</p></div>
         </div>
         <div class="container row">
