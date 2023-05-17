@@ -242,7 +242,6 @@ $iddd = $_SESSION['dany']['id'];
 <form style="margin-left: 5%; " action="reg/kate.php" method="post" enctype="multipart/form-data">
 <input  type="text" placeholder="Name kategory" name="name" class="feedback-input m">
 <button  name="but" type="submit" >Pridat</button>
-
 </form>
 
 <div class="container13">
