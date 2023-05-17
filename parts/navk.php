@@ -14,6 +14,7 @@ session_start();
         <li><a class="g o" href="../galeria.php">Galeria</a></li>
         <li><a class="k o" href="../kontakt.php">Kontakt</a></li>
         <li><a class="k o" href="indexx.php">Kalendar</a></li>
+        <li><a class="k o" href="../notes.php">Notes</a></li>
         <?php
         if($_SESSION['dany']['login'] == ''):
         ?>  

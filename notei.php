@@ -14,7 +14,13 @@ if(isset($_POST['add_note'])){
     $sql = mysqli_query($conn, "INSERT INTO `note` (title_note, note_text,id) VALUES ('$title_note','$note_text' ,'$user_id' )");
     
     if(mysqli_affected_rows($conn) > 0){
-        header("Location: notes.php");
+        if(isset($_POST['add_note_main'])){
+            $lesson_id = $_POST['lesson_id'];
+            header("Location:  $lesson_id ");
+        }else{
+            header("Location: notes.php");
+        }
+        
     }else{
         header("Location: notes.php?error=noteadded");
     }
@@ -25,4 +31,5 @@ if(isset($_POST['delete_note'])){
     $sql2 = mysqli_query($conn, "DELETE FROM `note` WHERE `idn` = '$id'");
     header("Location: notes.php?error=notedeleted");
 }
+
 ?>

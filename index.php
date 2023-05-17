@@ -5,7 +5,71 @@ session_start();
 require_once("reg/db.php");
 include_once "parts/header.php";
 ?>
+<style>
+        .open-button {
+            background-color: #555;
+            color: white;
+            padding: 12px 12px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+        }
 
+        .chat-popup {
+        color: white;
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .form-container {
+
+            max-width: 300px;
+            padding: 10px;
+            background-color: black;
+        }
+
+        .form-container textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            resize: none;
+            min-height: 200px;
+        }
+
+        .form-container textarea:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom:10px;
+            opacity: 0.8;
+        }
+
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        .form-container .btn:hover, .open-button:hover {
+            opacity: 1;
+        }
+    </style>
 <body>
 
 
@@ -232,6 +296,30 @@ echo '<button name="idb" type="submit" value="' . $row["name"] . '">Add Comments
 
 
 
+<?php
+$lesson_id = "index.php";
+?>
+
+    <button class="open-button" onclick="openForm()">Add Notes</button>
+
+<div class="chat-popup" id="myForm">
+    <form action="notei.php" method="post" class="form-container">
+        <h3>Add Notes</h3>
+        <input type="hidden" name="add_note">
+        <input type="hidden" name="add_note_main">
+        <?php
+        echo '<input type="hidden" name="lesson_id" value = "'.$lesson_id.'">';
+        echo '<input type="hidden" name="user_id" value="'.$_SESSION["dany"]['id'].'">';
+        ?>
+        <input type="text" name="title_note" placeholder="Title">
+            <br>
+        <textarea placeholder="Your note" name="note_text" required></textarea>
+
+        <button type="submit" class="btn">Add</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+</div>
+
 
     <?php
  
@@ -240,6 +328,17 @@ include_once "parts/footer.php";
 ?>
 
     <script>
+function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+
+
+
+
     var acc = document.getElementsByClassName("accordion");
     var i;
 
